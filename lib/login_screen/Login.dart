@@ -1,0 +1,131 @@
+// ignore_for_file: must_be_immutable
+
+import 'package:dopproject/login_screen/login_cubit/login_cubit.dart';
+import 'package:dopproject/register_screen/signup.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+
+class Login extends StatelessWidget {
+  TextEditingController email = TextEditingController();
+  TextEditingController password = TextEditingController();
+
+  var formKey = GlobalKey<FormState>();
+
+  Login({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => LoginCubit(),
+      child: BlocConsumer<LoginCubit, LoginState>(
+        listener: (context, state) {
+          // TODO: implement listener
+        },
+        builder: (context, state) {
+          var cubit = LoginCubit.get(context);
+          return Scaffold(
+            body: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Form(
+                child: SafeArea(
+                  child: SingleChildScrollView(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(borderRadius: BorderRadius.circular(50.0)),
+                          clipBehavior: Clip.antiAliasWithSaveLayer,
+                          child: const Image(image: NetworkImage('https://media.gemini.media/img/Medium/2021/3/6/2021_3_6_15_43_49_998.jpg')),
+                        ),
+                        const SizedBox(height: 30),
+                        const Text(
+                          'Login',
+                          style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold, color: Colors.teal),
+                        ),
+                        const SizedBox(
+                          height: 30,
+                        ),
+                        TextFormField(
+                          controller: email,
+                          keyboardType: TextInputType.emailAddress,
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(50),
+                              ),
+                              hintText: 'Enter your E-Mail',
+                              labelText: 'E-Mail',
+                              labelStyle: const TextStyle(
+                                color: Colors.teal,
+                              ),
+                              prefixIcon: const Icon(
+                                Icons.email,
+                                color: Colors.teal,
+                              )),
+                        ),
+                        const SizedBox(
+                          height: 15,
+                        ),
+                        TextFormField(
+                          controller: password,
+                          keyboardType: TextInputType.text,
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(
+                                borderRadius: BorderRadius.circular(50),
+                              ),
+                              hintText: 'Enter your Password',
+                              labelText: 'Password',
+                              labelStyle: const TextStyle(color: Colors.teal),
+                              prefixIcon: const Icon(Icons.lock, color: Colors.teal),
+                              suffixIcon: const Icon(Icons.remove_red_eye, color: Colors.teal)),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        ElevatedButton(
+                          onPressed: () {
+                            cubit.login(
+                              email: email.text,
+                              password: password.text,
+                              context: context,
+                            );
+                          },
+                          style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.teal,
+                              elevation: 10.0,
+                              textStyle: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold)),
+                          child: const Text('LOGIN'),
+                        ),
+                        const SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const Text(
+                              'Don\'t have an account ?',
+                            ),
+                            const SizedBox(
+                              width: 10,
+                            ),
+                            TextButton(
+                                onPressed: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (builder) => SignUp()));
+                                },
+                                child: const Text(
+                                  'Register Now',
+                                  style: TextStyle(color: Colors.teal),
+                                ))
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
+                ),
+              ),
+            ),
+          );
+        },
+      ),
+    );
+  }
+}

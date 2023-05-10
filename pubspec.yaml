@@ -28,6 +28,16 @@ environment:
 # the latest version available on pub.dev. To see which dependencies have newer
 # versions available, run `flutter pub outdated`.
 dependencies:
+  flutter_native_splash: ^2.2.19
+  flutter_launcher_icons: ^0.13.1
+  conditional_builder_null_safety: ^0.0.6
+  fluttertoast: ^8.2.1
+  flutter_bloc:
+  bloc:
+  cloud_firestore: ^4.4.3
+  firebase_auth: ^4.2.9
+  firebase_core:
+  tflite: any
   flutter_dropdown: ^1.0.1+hotfix.1
   dropdown_button2: ^1.9.2
   image_picker: ^0.8.7+4
@@ -43,12 +53,19 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
 
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/icon.jpg"
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is
   # activated in the `analysis_options.yaml` file located at the root of your
   # package. See that file for information about deactivating specific lint
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
+flutter_native_splash:
+  background_image: "assets/icon.jpg"
+
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -62,8 +79,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+    - assets/ai_model/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

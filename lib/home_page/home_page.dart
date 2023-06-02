@@ -1,6 +1,8 @@
 import 'dart:io';
 
 import 'package:dopproject/detect_screen/detect.dart';
+import 'package:dopproject/doctor_screen/doctor_screen.dart';
+import 'package:dopproject/history_screen/history_screen.dart';
 import 'package:dopproject/login_screen/Login.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -39,12 +41,7 @@ class _HomePageState extends State<HomePage> {
                     ? const Image(image: NetworkImage('https://media.gemini.media/img/Medium/2021/3/6/2021_3_6_15_43_49_998.jpg'))
                     : Image.file(imageTemporary!),
               ),
-              const SizedBox(height: 30),
-              const Text(
-                'What do you want...?',
-                style: TextStyle(fontSize: 29.8, fontWeight: FontWeight.bold, color: Colors.teal),
-              ),
-              const SizedBox(height: 40),
+              const SizedBox(height: 60),
               Row(
                 children: [
                   Expanded(
@@ -103,6 +100,52 @@ class _HomePageState extends State<HomePage> {
                   ),
                 ],
               ),
+              const SizedBox(height: 30),
+              Row(
+                children: [
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        color: Colors.teal,
+                      ),
+                      height: 70,
+                      child: MaterialButton(
+                        onPressed: () {
+                         Navigator.push(context, MaterialPageRoute(builder: (builder)=> History()));
+                        },
+                        child: const Center(
+                          child: FittedBox(
+                              fit: BoxFit.fitWidth,
+                              child: Text(style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 28), 'X-Ray History')),
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  Expanded(
+                    child: Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(50),
+                        color: Colors.teal,
+                      ),
+                      height: 70,
+                      child: MaterialButton(
+                        onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (builder) => Doctor()));},
+                        child: const Center(
+                          child: FittedBox(
+                              fit: BoxFit.fitWidth,
+                              child: Text(style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 28), 'Doctors')),
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
               const SizedBox(height: 40),
               Container(
                 decoration: BoxDecoration(
@@ -113,7 +156,7 @@ class _HomePageState extends State<HomePage> {
                 width: 150,
                 child: MaterialButton(
                   onPressed: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (builder) => Login()));
+                    Navigator.pushReplacement(context, MaterialPageRoute(builder: (builder) => Login()));
                   },
                   child: const Center(
                     child: FittedBox(

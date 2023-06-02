@@ -56,7 +56,49 @@ class Detect extends StatelessWidget {
                       Text(
                         cubit.outputs![0]['label'].toString() == '0 Broken' ? 'You need to see a doctor' : 'You are okay',
                         style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 25, color: Colors.teal),
-                      )
+                      ),
+                      const SizedBox(height: 40),
+                          if( cubit.outputs![0]['label'].toString()=='0 Broken' )
+                            Column(
+                              children: [
+                                TextFormField(
+                                controller: cubit.notes,
+                                keyboardType: TextInputType.text,
+                                decoration: InputDecoration(
+                                    border: OutlineInputBorder(
+                                      borderRadius: BorderRadius.circular(20),
+                                    ),
+                                    hintText: 'Write your Notes',
+                                    labelText: 'Notes',
+                                    labelStyle: const TextStyle(
+                                      color: Colors.teal,
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold
+                                    ),
+                                    prefixIcon: const Icon(
+                                      Icons.note_add_outlined,
+                                      color: Colors.teal,
+                                      size: 25,
+                                    )),
+                          ),
+                                const SizedBox(
+                                  height: 20,
+                                ),
+                                ElevatedButton(
+                                  onPressed: () {
+                                  },
+                                  style: ElevatedButton.styleFrom(
+                                      backgroundColor: Colors.teal,
+                                      elevation: 10.0,
+                                      textStyle: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold)),
+                                  child: const Text('Add Note'),
+                                ),
+                              ],
+                            ),
+
+
+
+
                     ])))),
           );
         },

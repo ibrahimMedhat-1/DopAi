@@ -11,6 +11,9 @@ class DetectCubit extends Cubit<DetectState> {
   static DetectCubit get(context) => BlocProvider.of(context);
   bool loading = false;
   List? outputs;
+  TextEditingController notes = TextEditingController();
+
+
 
   Future<void> loadModel() async {
     loading = true;
@@ -44,4 +47,6 @@ class DetectCubit extends Cubit<DetectState> {
     });
     Tflite.close();
   }
+
+
 }

@@ -17,7 +17,7 @@ class LoginCubit extends Cubit<LoginState> {
   }) {
     FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password).then((value) {
       uId = value.user!.uid;
-      Navigator.push(context, MaterialPageRoute(builder: (builder) => const HomePage()));
+      Navigator.pushReplacement(context, MaterialPageRoute(builder: (builder) => const HomePage()));
     });
   }
 }

@@ -112,7 +112,7 @@ class _HomePageState extends State<HomePage> {
                       height: 70,
                       child: MaterialButton(
                         onPressed: () {
-                         Navigator.push(context, MaterialPageRoute(builder: (builder)=> History()));
+                          Navigator.push(context, MaterialPageRoute(builder: (builder) => History()));
                         },
                         child: const Center(
                           child: FittedBox(
@@ -132,10 +132,8 @@ class _HomePageState extends State<HomePage> {
                       height: 70,
                       child: MaterialButton(
                         onPressed: () {
-                            Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                    builder: (builder) => Doctor()));},
+                          Navigator.push(context, MaterialPageRoute(builder: (builder) => Doctor()));
+                        },
                         child: const Center(
                           child: FittedBox(
                               fit: BoxFit.fitWidth,

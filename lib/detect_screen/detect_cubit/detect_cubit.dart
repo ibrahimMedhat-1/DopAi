@@ -8,16 +8,18 @@ part 'detect_state.dart';
 
 class DetectCubit extends Cubit<DetectState> {
   DetectCubit() : super(DetectInitial());
+
   static DetectCubit get(context) => BlocProvider.of(context);
   bool loading = false;
   List? outputs;
   TextEditingController notes = TextEditingController();
 
-
-
   Future<void> loadModel() async {
     loading = true;
-    await Tflite.loadModel(model: 'assets/ai_model/model_unquant.tflite', labels: 'assets/ai_model/labels.txt').then((value) {
+    await Tflite.loadModel(
+      model: 'assets/ai_model/model_unquant.tflite',
+      labels: 'assets/ai_model/labels.txt',
+    ).then((value) {
       emit(LoadModelSuccess());
     }).catchError((onError) {
       debugPrint('load error');
@@ -47,6 +49,4 @@ class DetectCubit extends Cubit<DetectState> {
     });
     Tflite.close();
   }
-
-
 }

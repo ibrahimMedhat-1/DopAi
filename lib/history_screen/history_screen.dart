@@ -18,7 +18,7 @@ class History extends StatelessWidget {
           var cubit = HistoryCubit.get(context);
           return Scaffold(
               appBar: AppBar(
-                backgroundColor: Colors.teal,
+                backgroundColor: Colors.lightBlueAccent,
                 title: Text(style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold), 'X-Ray History'),
               ),
               body: Padding(

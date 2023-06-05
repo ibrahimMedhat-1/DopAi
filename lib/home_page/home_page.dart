@@ -1,12 +1,14 @@
 import 'dart:io';
 
-import 'package:dopproject/detect_screen/detect.dart';
+import 'package:dopproject/detect_screen/detect_screen.dart';
 import 'package:dopproject/doctor_screen/doctor_screen.dart';
 import 'package:dopproject/history_screen/history_screen.dart';
 import 'package:dopproject/login_screen/Login.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:image_picker/image_picker.dart';
+
+import '../pharmacy_screen/pharmacy_screen.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -150,22 +152,7 @@ class _HomePageState extends State<HomePage> {
                           height: 70,
                           child: MaterialButton(
                             onPressed: () {
-                              if (imageTemporary != null) {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (builder) => Detect(
-                                              image: imageTemporary!,
-                                            )));
-                              } else {
-                                Fluttertoast.showToast(
-                                  msg: 'Please upload an xray',
-                                  toastLength: Toast.LENGTH_SHORT,
-                                  gravity: ToastGravity.TOP,
-                                  textColor: Colors.white,
-                                  fontSize: 16.0,
-                                );
-                              }
+                              Navigator.push(context, MaterialPageRoute(builder: (builder) => Pharmacy()));
                             },
                             child: const Center(
                               child: FittedBox(

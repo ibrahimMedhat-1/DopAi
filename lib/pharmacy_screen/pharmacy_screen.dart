@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dropdown/flutter_dropdown.dart';
 
-class Doctor extends StatelessWidget {
-  const Doctor({Key? key}) : super(key: key);
+class Pharmacy extends StatelessWidget {
+  const Pharmacy({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +26,7 @@ class Doctor extends StatelessWidget {
                     fontSize: 25,
                     fontWeight: FontWeight.bold,
                   ),
-                  'Doctors'),
+                  'Pharmacy'),
             ),
             body: Padding(
               padding: const EdgeInsets.all(10.0),
@@ -98,7 +98,7 @@ class Doctor extends StatelessWidget {
                                       fontWeight: FontWeight.bold,
                                       color: Colors.lightBlueAccent,
                                     ),
-                                    'Dr : ',
+                                    'Pharmasy Name : ',
                                   ),
                                   Expanded(
                                     child: Text(
@@ -155,30 +155,6 @@ class Doctor extends StatelessWidget {
                                         fontWeight: FontWeight.bold,
                                       ),
                                       cubit.doctor[index].address.toString(),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                              SizedBox(
-                                height: 15,
-                              ),
-                              Row(
-                                children: [
-                                  Text(
-                                    style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.lightBlueAccent,
-                                    ),
-                                    'E-mail : ',
-                                  ),
-                                  Expanded(
-                                    child: Text(
-                                      style: TextStyle(
-                                        fontSize: 20,
-                                        fontWeight: FontWeight.bold,
-                                      ),
-                                      cubit.doctor[index].email.toString(),
                                     ),
                                   ),
                                 ],

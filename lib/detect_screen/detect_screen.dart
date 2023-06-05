@@ -2,12 +2,13 @@ import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
-import 'package:dopproject/detect_screen/detect_cubit/detect_cubit.dart';
 import 'package:dopproject/home_page/home_page.dart';
 import 'package:dopproject/shared/constants.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+
+import 'detect_cubit/detect_cubit.dart';
 
 // ignore: must_be_immutable
 class Detect extends StatefulWidget {

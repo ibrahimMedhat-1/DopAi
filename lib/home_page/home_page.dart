@@ -77,7 +77,7 @@ class _HomePageState extends State<HomePage> {
                         child: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(50),
-                            color: Colors.teal,
+                            color: Colors.lightBlueAccent,
                           ),
                           height: 70,
                           child: MaterialButton(
@@ -97,46 +97,7 @@ class _HomePageState extends State<HomePage> {
                         child: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(50),
-                            color: Colors.teal,
-                          ),
-                          height: 70,
-                          child: MaterialButton(
-                            onPressed: () {
-                              if (imageTemporary != null) {
-                                Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (builder) => Detect(
-                                              image: imageTemporary!,
-                                            )));
-                              } else {
-                                Fluttertoast.showToast(
-                                  msg: 'Please upload an xray',
-                                  toastLength: Toast.LENGTH_SHORT,
-                                  gravity: ToastGravity.TOP,
-                                  textColor: Colors.white,
-                                  fontSize: 16.0,
-                                );
-                              }
-                            },
-                            child: const Center(
-                              child: FittedBox(
-                                  fit: BoxFit.fitWidth,
-                                  child: Text(style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 28), 'Detect X-Ray')),
-                            ),
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 30),
-                  Row(
-                    children: [
-                      Expanded(
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(50),
-                            color: Colors.teal,
+                            color: Colors.lightBlueAccent,
                           ),
                           height: 70,
                           child: MaterialButton(
@@ -151,12 +112,16 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                       ),
-                      const SizedBox(width: 10),
+                    ],
+                  ),
+                  const SizedBox(height: 30),
+                  Row(
+                    children: [
                       Expanded(
                         child: Container(
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(50),
-                            color: Colors.teal,
+                            color: Colors.lightBlueAccent,
                           ),
                           height: 70,
                           child: MaterialButton(
@@ -171,13 +136,48 @@ class _HomePageState extends State<HomePage> {
                           ),
                         ),
                       ),
+                      const SizedBox(width: 10),
+                      Expanded(
+                        child: Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(50),
+                            color: Colors.lightBlueAccent,
+                          ),
+                          height: 70,
+                          child: MaterialButton(
+                            onPressed: () {
+                              if (imageTemporary != null) {
+                                Navigator.push(
+                                    context,
+                                    MaterialPageRoute(
+                                        builder: (builder) => Detect(
+                                          image: imageTemporary!,
+                                        )));
+                              } else {
+                                Fluttertoast.showToast(
+                                  msg: 'Please upload an xray',
+                                  toastLength: Toast.LENGTH_SHORT,
+                                  gravity: ToastGravity.TOP,
+                                  textColor: Colors.white,
+                                  fontSize: 16.0,
+                                );
+                              }
+                            },
+                            child: const Center(
+                              child: FittedBox(
+                                  fit: BoxFit.fitWidth,
+                                  child: Text(style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold, fontSize: 28), 'Pharmacy')),
+                            ),
+                          ),
+                        ),
+                      ),
                     ],
                   ),
                   const SizedBox(height: 40),
                   Container(
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(50),
-                      color: Colors.teal,
+                      color: Colors.lightBlueAccent,
                     ),
                     height: 50,
                     width: 150,

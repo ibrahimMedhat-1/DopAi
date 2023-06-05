@@ -33,6 +33,7 @@ class _HomePageState extends State<HomePage> {
           return Scaffold(
               backgroundColor: Colors.white,
               appBar: AppBar(
+                centerTitle: true,
                 backgroundColor: Colors.lightBlueAccent,
                 title: Text(
                   'Bone Care',

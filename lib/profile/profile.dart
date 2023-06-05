@@ -16,6 +16,17 @@ class Profile extends StatelessWidget {
   builder: (context, state) {
      var cubit = ProfileCubit.get(context);
     return Scaffold(
+      appBar: AppBar(
+        centerTitle: true,
+        backgroundColor: Colors.lightBlueAccent,
+        title: Text(
+          'Profile',
+          style: TextStyle(
+              fontSize: 25,
+              fontWeight: FontWeight.bold
+          ),
+        ),
+      ),
         body: Padding(
           padding: const EdgeInsets.all(20.0),
           child: SafeArea(
@@ -41,7 +52,7 @@ class Profile extends StatelessWidget {
                 ),
                 SizedBox(height: 20,),
                 Text(
-                  'E-mail : ${cubit.email}',
+                  'E-Mail : ${cubit.email}',
                   style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                 ),
                 SizedBox(height: 20,),

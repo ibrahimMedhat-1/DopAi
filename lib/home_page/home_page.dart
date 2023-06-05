@@ -21,6 +21,30 @@ class _HomePageState extends State<HomePage> {
   void pickImage() async {
     await ImagePicker().pickImage(source: ImageSource.gallery).then((value) {
       imageTemporary = File(value!.path);
+      showDialog(
+          context: context,
+          builder: (context) => AlertDialog(
+                title: Text('You want to upload this xray ?'),
+                actions: [
+                  TextButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                        setState(() {});
+                      },
+                      child: Text(
+                        'Cancel',
+                        style: TextStyle(color: Colors.red),
+                      )),
+                  TextButton(
+                      onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (builder) => Detect(image: imageTemporary!)));
+                      },
+                      child: Text(
+                        'Confirm',
+                        style: TextStyle(color: Colors.green),
+                      )),
+                ],
+              ));
       setState(() {});
     });
   }
@@ -39,15 +63,13 @@ class _HomePageState extends State<HomePage> {
                   Container(
                     decoration: BoxDecoration(borderRadius: BorderRadius.circular(50.0)),
                     clipBehavior: Clip.antiAliasWithSaveLayer,
-                    child: imageTemporary == null
-                        ? const Image(
-                            height: 200,
-                            image: AssetImage('assets/Bone Care.png'),
-                          )
-                        : Image.file(imageTemporary!),
+                    child: const Image(
+                      height: 200,
+                      image: AssetImage('assets/Bone Care.png'),
+                    ),
                   ),
                   const SizedBox(height: 60),
-                  // row has upload button and detct button
+                  // row has upload button and detect button
                   Row(
                     children: [
                       Expanded(

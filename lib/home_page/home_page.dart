@@ -26,24 +26,27 @@ class _HomePageState extends State<HomePage> {
           builder: (context) => AlertDialog(
                 title: Text('You want to detect this xray ?'),
                 content: Image.file(imageTemporary!),
+                actionsAlignment: MainAxisAlignment.spaceAround,
                 actions: [
-                  TextButton(
+                  MaterialButton(
+                      color: Colors.red,
                       onPressed: () {
                         Navigator.pop(context);
                         setState(() {});
                       },
                       child: Text(
                         'Cancel',
-                        style: TextStyle(color: Colors.red),
+                        style: TextStyle(color: Colors.white),
                       )),
-                  TextButton(
+                  MaterialButton(
+                      color: Colors.green,
                       onPressed: () {
                         Navigator.pop(context);
                         Navigator.push(context, MaterialPageRoute(builder: (builder) => Detect(image: imageTemporary!)));
                       },
                       child: Text(
-                        'Confirm',
-                        style: TextStyle(color: Colors.green),
+                        'Detect',
+                        style: TextStyle(color: Colors.white),
                       )),
                 ],
               ));

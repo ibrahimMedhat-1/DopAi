@@ -54,11 +54,12 @@ class Login extends StatelessWidget {
                               hintText: 'Enter your E-Mail',
                               labelText: 'E-Mail',
                               labelStyle: const TextStyle(
-                                color: Colors.teal,
+                                color: Colors.lightBlueAccent,
+                                  fontSize:18,fontWeight: FontWeight.bold
                               ),
                               prefixIcon: const Icon(
                                 Icons.email,
-                                color: Colors.teal,
+                                color: Colors.lightBlueAccent,
                               )),
                         ),
                         const SizedBox(
@@ -73,14 +74,14 @@ class Login extends StatelessWidget {
                               ),
                               hintText: 'Enter your Password',
                               labelText: 'Password',
-                              labelStyle: const TextStyle(color: Colors.teal),
-                              prefixIcon: const Icon(Icons.lock, color: Colors.teal),
-                              suffixIcon: const Icon(Icons.remove_red_eye, color: Colors.teal)),
+                              labelStyle: const TextStyle(color: Colors.lightBlueAccent,fontSize:18,fontWeight: FontWeight.bold ),
+                              prefixIcon: const Icon(Icons.lock, color: Colors.lightBlueAccent),
+                              suffixIcon: const Icon(Icons.remove_red_eye, color: Colors.lightBlueAccent)),
                         ),
                         const SizedBox(
                           height: 20,
                         ),
-                        ElevatedButton(
+                        cubit.isloading==false?ElevatedButton(
                           onPressed: () {
                             cubit.login(
                               email: email.text,
@@ -93,7 +94,7 @@ class Login extends StatelessWidget {
                               elevation: 10.0,
                               textStyle: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold)),
                           child: const Text('LOGIN'),
-                        ),
+                        ):CircularProgressIndicator(),
                         const SizedBox(
                           height: 10,
                         ),
@@ -112,7 +113,7 @@ class Login extends StatelessWidget {
                                 },
                                 child: const Text(
                                   'Register Now',
-                                  style: TextStyle(color: Colors.teal),
+                                  style: TextStyle(color: Colors.lightBlueAccent),
                                 ))
                           ],
                         )

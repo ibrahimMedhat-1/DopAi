@@ -36,7 +36,7 @@ class SignUp extends StatelessWidget {
                       children: [
                         const Text(
                           'Register Now',
-                          style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.teal, fontStyle: FontStyle.italic),
+                          style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.lightBlueAccent, fontStyle: FontStyle.italic),
                         ),
                         const SizedBox(
                           height: 30,
@@ -52,12 +52,12 @@ class SignUp extends StatelessWidget {
                               labelStyle: const TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.teal,
+                                color: Colors.lightBlueAccent,
                                 fontStyle: FontStyle.italic,
                               ),
                               prefixIcon: const Icon(
                                 Icons.person,
-                                color: Colors.teal,
+                                color: Colors.lightBlueAccent,
                               )),
                         ),
                         const SizedBox(
@@ -71,10 +71,10 @@ class SignUp extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(50),
                               ),
                               labelText: 'E-Mail',
-                              labelStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.teal, fontStyle: FontStyle.italic),
+                              labelStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.lightBlueAccent, fontStyle: FontStyle.italic),
                               prefixIcon: const Icon(
                                 Icons.email,
-                                color: Colors.teal,
+                                color: Colors.lightBlueAccent,
                               )),
                         ),
                         const SizedBox(
@@ -88,9 +88,9 @@ class SignUp extends StatelessWidget {
                                 borderRadius: BorderRadius.circular(50),
                               ),
                               labelText: 'Password',
-                              labelStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.teal, fontStyle: FontStyle.italic),
-                              prefixIcon: const Icon(Icons.lock, color: Colors.teal),
-                              suffixIcon: const Icon(Icons.remove_red_eye, color: Colors.teal)),
+                              labelStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.lightBlueAccent, fontStyle: FontStyle.italic),
+                              prefixIcon: const Icon(Icons.lock, color: Colors.lightBlueAccent),
+                              suffixIcon: const Icon(Icons.remove_red_eye, color: Colors.lightBlueAccent)),
                         ),
                         const SizedBox(
                           height: 15,
@@ -107,8 +107,8 @@ class SignUp extends StatelessWidget {
                                   ),
                                   labelText: 'Age',
                                   labelStyle:
-                                      const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.teal, fontStyle: FontStyle.italic),
-                                  prefixIcon: const Icon(Icons.date_range_outlined, color: Colors.teal),
+                                      const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.lightBlueAccent, fontStyle: FontStyle.italic),
+                                  prefixIcon: const Icon(Icons.date_range_outlined, color: Colors.lightBlueAccent),
                                 ),
                               ),
                             ),
@@ -119,7 +119,7 @@ class SignUp extends StatelessWidget {
                               child: Container(
                                 height: 60,
                                 margin: const EdgeInsets.all(10),
-                                decoration: BoxDecoration(color: Colors.teal, borderRadius: BorderRadius.circular(50)),
+                                decoration: BoxDecoration(color: Colors.lightBlueAccent, borderRadius: BorderRadius.circular(50)),
                                 child: Center(
                                   child: DropDown(
                                     onChanged: (value) {
@@ -157,8 +157,8 @@ class SignUp extends StatelessWidget {
                                   ),
                                   labelText: 'weight',
                                   labelStyle:
-                                      const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.teal, fontStyle: FontStyle.italic),
-                                  prefixIcon: const Icon(Icons.arrow_right_alt, color: Colors.teal),
+                                      const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.lightBlueAccent, fontStyle: FontStyle.italic),
+                                  prefixIcon: const Icon(Icons.arrow_right_alt, color: Colors.lightBlueAccent),
                                 ),
                               ),
                             ),
@@ -175,8 +175,8 @@ class SignUp extends StatelessWidget {
                                   ),
                                   labelText: 'height',
                                   labelStyle:
-                                      const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.teal, fontStyle: FontStyle.italic),
-                                  prefixIcon: const Icon(Icons.height, color: Colors.teal),
+                                      const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.lightBlueAccent, fontStyle: FontStyle.italic),
+                                  prefixIcon: const Icon(Icons.height, color: Colors.lightBlueAccent),
                                 ),
                               ),
                             ),
@@ -185,7 +185,7 @@ class SignUp extends StatelessWidget {
                         const SizedBox(
                           height: 25,
                         ),
-                        ElevatedButton(
+                        cubit.isloading==false?ElevatedButton(
                           onPressed: () {
                             cubit.signUp(
                               context: context,
@@ -199,12 +199,12 @@ class SignUp extends StatelessWidget {
                             );
                           },
                           style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.teal,
+                              backgroundColor: Colors.lightBlueAccent,
                               elevation: 10.0,
                               textStyle:
                                   const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold, fontStyle: FontStyle.italic)),
                           child: const Text('Create an account'),
-                        ),
+                        ):CircularProgressIndicator(),
                       ],
                     ),
                   ),

@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
-import 'package:dopproject/doctor_screen/cubit/doctors_cubit.dart';
+import 'package:dopproject/pharmacy_screen/cubit/pharmacy_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_dropdown/flutter_dropdown.dart';
@@ -11,13 +11,13 @@ class Pharmacy extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => DoctorsCubit(),
-      child: BlocConsumer<DoctorsCubit, DoctorsState>(
+      create: (context) => PharmacyCubit(),
+      child: BlocConsumer<PharmacyCubit, PharmacyState>(
         listener: (context, state) {
           // TODO: implement listener
         },
         builder: (context, state) {
-          var cubit = DoctorsCubit.get(context);
+          var cubit = PharmacyCubit.get(context);
           return Scaffold(
             appBar: AppBar(
               backgroundColor: Colors.lightBlueAccent,

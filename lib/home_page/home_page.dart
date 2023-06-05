@@ -24,7 +24,7 @@ class _HomePageState extends State<HomePage> {
       showDialog(
           context: context,
           builder: (context) => AlertDialog(
-                title: Text('You want to upload this xray ?'),
+                title: Text('You want to detect this xray ?'),
                 content: Image.file(imageTemporary!),
                 actions: [
                   TextButton(
@@ -38,6 +38,7 @@ class _HomePageState extends State<HomePage> {
                       )),
                   TextButton(
                       onPressed: () {
+                        Navigator.pop(context);
                         Navigator.push(context, MaterialPageRoute(builder: (builder) => Detect(image: imageTemporary!)));
                       },
                       child: Text(
@@ -151,8 +152,8 @@ class _HomePageState extends State<HomePage> {
                                     context,
                                     MaterialPageRoute(
                                         builder: (builder) => Detect(
-                                          image: imageTemporary!,
-                                        )));
+                                              image: imageTemporary!,
+                                            )));
                               } else {
                                 Fluttertoast.showToast(
                                   msg: 'Please upload an xray',

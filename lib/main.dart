@@ -10,6 +10,11 @@ void main() async {
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(MaterialApp(
+    theme: ThemeData(
+      scaffoldBackgroundColor: Colors.white,
+      primaryColor: Colors.lightBlueAccent,
+      canvasColor: Colors.white,
+    ),
     debugShowCheckedModeBanner: false,
     home: Login(),
   ));

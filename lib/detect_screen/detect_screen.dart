@@ -2,7 +2,9 @@ import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
+import 'package:dopproject/doctor_screen/doctor_screen.dart';
 import 'package:dopproject/home_page/home_page.dart';
+import 'package:dopproject/pharmacy_screen/pharmacy_screen.dart';
 import 'package:dopproject/shared/constants.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
@@ -73,6 +75,70 @@ class _DetectState extends State<Detect> {
                       if (cubit.outputs![0]['label'].toString() == '0 Broken')
                         Column(
                           children: [
+                            Container(
+                              decoration: BoxDecoration(color: Colors.lightBlueAccent, borderRadius: BorderRadius.circular(20)),
+                              margin: EdgeInsets.only(bottom: 10),
+                              child: MaterialButton(
+                                onPressed: () {
+                                  Navigator.push(context, MaterialPageRoute(builder: (builder) => Doctor()));
+                                },
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    Text(
+                                      'View Doctors',
+                                      style: TextStyle(
+                                        fontWeight: FontWeight.bold,
+                                        color: Colors.white,
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 30,
+                                    ),
+                                    Icon(
+                                      Icons.arrow_forward_ios,
+                                      color: Colors.white,
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Container(
+                              margin: EdgeInsets.only(bottom: 10),
+                              decoration: BoxDecoration(color: Colors.lightBlueAccent, borderRadius: BorderRadius.circular(20)),
+                              child: ExpansionTile(
+                                title: const Center(
+                                  child: Text(
+                                    'You must get...',
+                                    style: TextStyle(color: Colors.white),
+                                  ),
+                                ),
+                                childrenPadding: const EdgeInsets.all(20),
+                                children: [
+                                  Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                                    Text(
+                                      'Panadol',
+                                      style: const TextStyle(color: Colors.white, height: 1.6),
+                                    ),
+                                    Text(
+                                      'medicine',
+                                      style: const TextStyle(color: Colors.white, height: 1.6),
+                                    ),
+                                    TextButton(
+                                        onPressed: () {
+                                          Navigator.push(context, MaterialPageRoute(builder: (builder) => Pharmacy()));
+                                        },
+                                        child: Text(
+                                          'View near pharmacies',
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.white,
+                                          ),
+                                        ))
+                                  ])
+                                ],
+                              ),
+                            ),
                             TextFormField(
                               controller: cubit.notes,
                               keyboardType: TextInputType.text,

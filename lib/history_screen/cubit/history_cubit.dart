@@ -19,7 +19,6 @@ class HistoryCubit extends Cubit<HistoryState> {
         emit(GetHistory());
       });
       emit(GetHistory());
-
     });
   }
 

@@ -37,7 +37,7 @@ class _DetectState extends State<Detect> {
           var cubit = DetectCubit.get(context);
           return Scaffold(
             appBar: AppBar(
-              backgroundColor: Colors.teal,
+              backgroundColor: Colors.lightBlueAccent,
               title: const Text(style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold), 'Detect X-Ray'),
             ),
             body: ConditionalBuilder(
@@ -62,12 +62,12 @@ class _DetectState extends State<Detect> {
                       const SizedBox(height: 30),
                       Text(
                         cubit.outputs![0]['label'].toString() == '0 Broken' ? 'Broken' : 'Non - Broken',
-                        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 40, color: Colors.teal),
+                        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 40, color: Colors.lightBlueAccent),
                       ),
                       const SizedBox(height: 20),
                       Text(
                         cubit.outputs![0]['label'].toString() == '0 Broken' ? 'You need to see a doctor' : 'You are okay',
-                        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 25, color: Colors.teal),
+                        style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 25, color: Colors.lightBlueAccent),
                       ),
                       const SizedBox(height: 40),
                       if (cubit.outputs![0]['label'].toString() == '0 Broken')
@@ -82,10 +82,10 @@ class _DetectState extends State<Detect> {
                                   ),
                                   hintText: 'Write your Notes',
                                   labelText: 'Notes',
-                                  labelStyle: const TextStyle(color: Colors.teal, fontSize: 20, fontWeight: FontWeight.bold),
+                                  labelStyle: const TextStyle(color: Colors.lightBlueAccent, fontSize: 20, fontWeight: FontWeight.bold),
                                   prefixIcon: const Icon(
                                     Icons.note_add_outlined,
-                                    color: Colors.teal,
+                                    color: Colors.lightBlueAccent,
                                     size: 25,
                                   )),
                             ),
@@ -116,7 +116,7 @@ class _DetectState extends State<Detect> {
                                       });
                                     },
                                     style: ElevatedButton.styleFrom(
-                                        backgroundColor: Colors.teal,
+                                        backgroundColor: Colors.lightBlueAccent,
                                         elevation: 10.0,
                                         textStyle: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold)),
                                     child: const Text('Add To History'),

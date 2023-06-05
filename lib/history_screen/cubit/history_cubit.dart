@@ -16,8 +16,15 @@ class HistoryCubit extends Cubit<HistoryState> {
     FirebaseFirestore.instance.collection('user').doc(uId).collection('history').get().then((value) {
       value.docs.forEach((element) {
         history.add(HistoryModel.fromJson(element.data()));
+        print(history[0].id);
         emit(GetHistory());
       });
+    });
+  }
+
+  void deleteHistory({required String id}) {
+    FirebaseFirestore.instance.collection('user').doc(uId).collection('history').doc(id).delete().then((value) {
+      getHistory();
     });
   }
 }

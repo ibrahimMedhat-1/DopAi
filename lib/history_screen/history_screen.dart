@@ -28,35 +28,51 @@ class History extends StatelessWidget {
                       condition: cubit.history.isNotEmpty,
                       builder: (context) => Expanded(
                         child: ListView.separated(
-                          itemBuilder: (context, index) => Container(
-                            padding: EdgeInsets.fromLTRB(10, 10, 10, 15),
-                            clipBehavior: Clip.antiAlias,
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              boxShadow: [
-                                BoxShadow(
-                                  color: Colors.grey,
-                                  blurRadius: 10,
-                                  offset: Offset(5, 5), // Shadow position
+                          itemBuilder: (context, index) => Stack(
+                            children: [
+                              Container(
+                                padding: EdgeInsets.fromLTRB(10, 10, 10, 15),
+                                clipBehavior: Clip.antiAlias,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.grey,
+                                      blurRadius: 10,
+                                      offset: Offset(5, 5), // Shadow position
+                                    ),
+                                  ],
+                                  borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20)),
                                 ),
-                              ],
-                              borderRadius: BorderRadius.only(topLeft: Radius.circular(20), topRight: Radius.circular(20)),
-                            ),
-                            margin: EdgeInsets.fromLTRB(10, 10, 10, 0),
-                            width: double.infinity,
-                            child: Column(
-                              children: [
-                                Image(image: NetworkImage(cubit.history[index].image.toString())),
-                                SizedBox(
-                                  height: 10,
+                                margin: EdgeInsets.fromLTRB(10, 10, 10, 0),
+                                width: double.infinity,
+                                child: Column(
+                                  children: [
+                                    Image(image: NetworkImage(cubit.history[index].image.toString())),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    Text(style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold), cubit.history[index].date.toString()),
+                                    SizedBox(
+                                      height: 10,
+                                    ),
+                                    Text(style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold), cubit.history[index].note.toString()),
+                                  ],
                                 ),
-                                Text(style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold), cubit.history[index].date.toString()),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Text(style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold), cubit.history[index].note.toString()),
-                              ],
-                            ),
+                              ),
+                              Padding(
+                                padding: EdgeInsets.all(20),
+                                child: IconButton(
+                                    onPressed: () {
+                                      cubit.deleteHistory(id: cubit.history[index].id.toString());
+                                    },
+                                    icon: Icon(
+                                      Icons.delete,
+                                      color: Colors.red,
+                                      size: 40,
+                                    )),
+                              )
+                            ],
                           ),
                           separatorBuilder: (context, index) => SizedBox(
                             height: 25,

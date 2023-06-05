@@ -95,6 +95,7 @@ class _DetectState extends State<Detect> {
                             !loading
                                 ? ElevatedButton(
                                     onPressed: () {
+                                      String? id;
                                       loading = true;
                                       setState(() {});
                                       FirebaseStorage.instance.ref().child('doctor/${DateTime.now()}').putFile(widget.image).then((value) {
@@ -104,7 +105,12 @@ class _DetectState extends State<Detect> {
                                             'date': DateTime.now().toString(),
                                             'note': cubit.notes.text.toString(),
                                           }).then((value) {
+                                            id = value.id;
                                             Navigator.pushReplacement(context, MaterialPageRoute(builder: (builder) => HomePage()));
+                                          }).then((value) {
+                                            FirebaseFirestore.instance.collection('user').doc(uId).collection('history').doc(id).update({
+                                              'id': id,
+                                            });
                                           });
                                         });
                                       });

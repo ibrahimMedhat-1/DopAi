@@ -24,6 +24,7 @@ class Login extends StatelessWidget {
         builder: (context, state) {
           var cubit = LoginCubit.get(context);
           return Scaffold(
+            backgroundColor: Colors.white,
             body: Padding(
               padding: const EdgeInsets.all(10.0),
               child: Form(
@@ -33,14 +34,12 @@ class Login extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         Container(
+                          height: 250,
                           decoration: BoxDecoration(borderRadius: BorderRadius.circular(50.0)),
                           clipBehavior: Clip.antiAliasWithSaveLayer,
-                          child: const Image(image: NetworkImage('https://media.gemini.media/img/Medium/2021/3/6/2021_3_6_15_43_49_998.jpg')),
-                        ),
-                        const SizedBox(height: 30),
-                        const Text(
-                          'Login',
-                          style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold, color: Colors.teal),
+                          child: const Image(
+                            image: AssetImage('assets/Bone Care.png'),
+                          ),
                         ),
                         const SizedBox(
                           height: 30,
@@ -90,7 +89,7 @@ class Login extends StatelessWidget {
                             );
                           },
                           style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.teal,
+                              backgroundColor: Colors.lightBlueAccent,
                               elevation: 10.0,
                               textStyle: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold)),
                           child: const Text('LOGIN'),

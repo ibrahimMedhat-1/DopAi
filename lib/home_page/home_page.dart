@@ -34,6 +34,7 @@ class _HomePageState extends State<HomePage> {
         child: SingleChildScrollView(
           child: Column(
             children: [
+              // image
               Container(
                 decoration: BoxDecoration(borderRadius: BorderRadius.circular(50.0)),
                 clipBehavior: Clip.antiAliasWithSaveLayer,
@@ -42,6 +43,7 @@ class _HomePageState extends State<HomePage> {
                     : Image.file(imageTemporary!),
               ),
               const SizedBox(height: 60),
+              // row has upload button and detct button
               Row(
                 children: [
                   Expanded(

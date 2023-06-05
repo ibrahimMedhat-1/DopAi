@@ -13,6 +13,7 @@ class LoginCubit extends Cubit<LoginState> {
   static LoginCubit get(context) => BlocProvider.of(context);
 
   bool isloading = false;
+  bool obscure = true;
 
 
   void login({
@@ -38,5 +39,10 @@ class LoginCubit extends Cubit<LoginState> {
       isloading = false;
       emit(Isloading());
     });
+  }
+
+  changeObscure() {
+    obscure = !obscure;
+    emit(ChangeObscureSuccessfuly());
   }
 }

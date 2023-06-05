@@ -6,3 +6,5 @@ abstract class RegisterState {}
 class RegisterInitial extends RegisterState {}
 
 class Isloading extends RegisterState {}
+
+class ChangeObscureSuccessfuly extends RegisterState {}

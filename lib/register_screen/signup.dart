@@ -83,6 +83,7 @@ class SignUp extends StatelessWidget {
                         TextFormField(
                           controller: password,
                           keyboardType: TextInputType.text,
+                          obscureText: cubit.obscure,
                           decoration: InputDecoration(
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(50),
@@ -90,8 +91,21 @@ class SignUp extends StatelessWidget {
                               labelText: 'Password',
                               labelStyle: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold, color: Colors.lightBlueAccent, fontStyle: FontStyle.italic),
                               prefixIcon: const Icon(Icons.lock, color: Colors.lightBlueAccent),
-                              suffixIcon: const Icon(Icons.remove_red_eye, color: Colors.lightBlueAccent)),
-                        ),
+                              suffixIcon:IconButton(
+                                onPressed: () {
+                                  cubit.changeObscure();
+                                },
+                                icon: cubit.obscure
+                                    ? Icon(
+                                  Icons.remove_red_eye,
+                                  color: Colors.lightBlueAccent,
+                                )
+                                    : Icon(
+                                  Icons.visibility_off_sharp,
+                                  color: Colors.lightBlueAccent,
+                                ),
+                              ),
+                          ),),
                         const SizedBox(
                           height: 15,
                         ),

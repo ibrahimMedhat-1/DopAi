@@ -13,6 +13,8 @@ class RegisterCubit extends Cubit<RegisterState> {
   static RegisterCubit get(context) => BlocProvider.of(context);
 
   bool isloading = false;
+  bool obscure = true;
+
 
   void signUp({
     required String email,
@@ -50,5 +52,10 @@ class RegisterCubit extends Cubit<RegisterState> {
       isloading = false;
       emit(Isloading());
     });
+  }
+
+  changeObscure() {
+    obscure = !obscure;
+    emit(ChangeObscureSuccessfuly());
   }
 }

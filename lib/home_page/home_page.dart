@@ -25,6 +25,7 @@ class _HomePageState extends State<HomePage> {
           context: context,
           builder: (context) => AlertDialog(
                 title: Text('You want to upload this xray ?'),
+                content: Image.file(imageTemporary!),
                 actions: [
                   TextButton(
                       onPressed: () {

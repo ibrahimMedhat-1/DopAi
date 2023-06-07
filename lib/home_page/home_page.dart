@@ -162,31 +162,6 @@ class _HomePageState extends State<HomePage> {
                             ),
                           ],
                         ),
-                        const SizedBox(height: 40),
-                        Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(50),
-                            color: Colors.lightBlueAccent,
-                          ),
-                          height: 50,
-                          width: 150,
-                          child: MaterialButton(
-                            onPressed: () {
-                              Navigator.pushReplacement(context, MaterialPageRoute(builder: (builder) => Login()));
-                            },
-                            child: const Center(
-                              child: FittedBox(
-                                fit: BoxFit.fitWidth,
-                                child: Text(
-                                  style: TextStyle(color: Colors.white, fontSize: 25, fontWeight: FontWeight.bold, overflow: TextOverflow.ellipsis),
-                                  'Sign Out',
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                ),
-                              ),
-                            ),
-                          ),
-                        ),
                       ],
                     ),
                   ),

@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:dopproject/doctor_screen/doctor_screen.dart';
 import 'package:dopproject/history_screen/history_screen.dart';
 import 'package:dopproject/home_page/cubit/home_page_cubit.dart';
-import 'package:dopproject/login_screen/Login.dart';
 import 'package:dopproject/profile/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -37,15 +36,12 @@ class _HomePageState extends State<HomePage> {
                 backgroundColor: Colors.lightBlueAccent,
                 title: Text(
                   'Bone Care',
-                  style: TextStyle(
-                    fontSize: 25,
-                    fontWeight: FontWeight.bold
-                  ),
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                 ),
                 actions: [
                   InkWell(
                     onTap: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (builder)=>Profile()));
+                      Navigator.push(context, MaterialPageRoute(builder: (builder) => Profile()));
                     },
                     child: CircleAvatar(
                       radius: 40,

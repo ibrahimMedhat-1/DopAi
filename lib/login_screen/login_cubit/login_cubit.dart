@@ -1,3 +1,4 @@
+import 'package:dopproject/shared/cacheHelper.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,7 +16,6 @@ class LoginCubit extends Cubit<LoginState> {
   bool isloading = false;
   bool obscure = true;
 
-
   void login({
     required String email,
     required String password,
@@ -23,19 +23,18 @@ class LoginCubit extends Cubit<LoginState> {
   }) {
     isloading = true;
     emit(Isloading());
-    FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password).then((value) {
+    FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password).then((value) async {
       uId = value.user!.uid;
+      await CacheHelper.setData(key: 'login', value: 'user');
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (builder) => const HomePage()));
-    }).catchError((onError)
-    {
+    }).catchError((onError) {
       Fluttertoast.showToast(
           msg: onError.message.toString(),
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.BOTTOM,
           backgroundColor: Colors.lightBlueAccent,
           textColor: Colors.white,
-          fontSize: 18.0
-      );
+          fontSize: 18.0);
       isloading = false;
       emit(Isloading());
     });

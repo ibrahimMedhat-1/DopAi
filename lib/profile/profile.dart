@@ -81,7 +81,7 @@ class Profile extends StatelessWidget {
                                 Icons.calendar_month,color: Colors.lightBlueAccent,size: 50),
                             SizedBox(height: 20,),
                             Text(
-                              '${cubit.age}',
+                              '${cubit.age} Y',
                               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                             ),
                           ],
@@ -94,7 +94,7 @@ class Profile extends StatelessWidget {
                                 Icons.scale,color: Colors.lightBlueAccent,size: 50),
                             SizedBox(height: 20,),
                             Text(
-                              '${cubit.weight}',
+                              '${cubit.weight} KG',
                               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                             ),
                           ],
@@ -107,7 +107,7 @@ class Profile extends StatelessWidget {
                                 Icons.height,color: Colors.lightBlueAccent,size: 50),
                             SizedBox(height: 20,),
                             Text(
-                              '${cubit.height}',
+                              '${cubit.height} CM',
                               style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
                             ),
                           ],

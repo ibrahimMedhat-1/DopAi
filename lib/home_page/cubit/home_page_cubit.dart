@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:dopproject/detect_screen/detect_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
@@ -61,6 +62,7 @@ class HomePageCubit extends Cubit<HomePageState> {
                         color: Colors.green,
                         onPressed: () {
                           Navigator.pop(context);
+                          Navigator.push(context, MaterialPageRoute(builder: (builder) => Detect(image: image)));
                           emit(ImageIsNotXray());
                         },
                         child: Text(

@@ -1,8 +1,15 @@
+import 'dart:io';
+
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dopproject/login_screen/Login.dart';
 import 'package:dopproject/profile/profile_cubit/profile_cubit.dart';
 import 'package:dopproject/shared/cacheHelper.dart';
+import 'package:dopproject/shared/constants.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:image_picker/image_picker.dart';
 
 class Profile extends StatelessWidget {
   const Profile({Key? key}) : super(key: key);
@@ -37,9 +44,31 @@ class Profile extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Center(
-                            child: CircleAvatar(
-                              backgroundImage: NetworkImage('https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png'),
-                              radius: 100,
+                            child: InkWell(
+                              onTap: () {
+                                File? image;
+                                ImagePicker().pickImage(source: ImageSource.gallery).then((value) {
+                                  image = File(value!.path);
+                                  FirebaseStorage.instance.ref().child('user/profile/$uId}').putFile(image!).then((p0) {
+                                    p0.ref.getDownloadURL().then((value) {
+                                      FirebaseFirestore.instance.collection('user').doc(uId).update({'image': value.toString()}).then((value) {
+                                        cubit.Profile();
+                                      });
+                                    });
+                                  });
+                                });
+                              },
+                              child: Container(
+                                height: 200,
+                                width: 200,
+                                decoration: BoxDecoration(borderRadius: BorderRadius.circular(80)),
+                                clipBehavior: Clip.antiAlias,
+                                child: CachedNetworkImage(
+                                    imageUrl: cubit.image.toString() != 'null'
+                                        ? cubit.image.toString()
+                                        : 'https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png',
+                                    placeholder: (context, url) => Image.asset('assets/2815428.png')),
+                              ),
                             ),
                           ),
                         ],
@@ -130,6 +159,7 @@ class Profile extends StatelessWidget {
                         child: ElevatedButton(
                           onPressed: () async {
                             await CacheHelper.removeData(key: 'login');
+                            await CacheHelper.removeData(key: 'uId');
                             Navigator.pushReplacement(context, MaterialPageRoute(builder: (builder) => Login()));
                           },
                           style: ElevatedButton.styleFrom(

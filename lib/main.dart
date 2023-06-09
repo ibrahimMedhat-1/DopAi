@@ -11,6 +11,7 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await CacheHelper.init();
   isUser = await CacheHelper.getData(key: 'login');
+  uId = await CacheHelper.getData(key: 'uId');
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );

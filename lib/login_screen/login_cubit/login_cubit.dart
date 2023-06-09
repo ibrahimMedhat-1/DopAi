@@ -26,6 +26,7 @@ class LoginCubit extends Cubit<LoginState> {
     FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password).then((value) async {
       uId = value.user!.uid;
       await CacheHelper.setData(key: 'login', value: 'user');
+      await CacheHelper.setData(key: 'uId', value: uId);
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (builder) => const HomeLayout()));
     }).catchError((onError) {
       Fluttertoast.showToast(

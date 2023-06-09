@@ -53,10 +53,7 @@ class Login extends StatelessWidget {
                               ),
                               hintText: 'Enter your E-Mail',
                               labelText: 'E-Mail',
-                              labelStyle: const TextStyle(
-                                color: Colors.lightBlueAccent,
-                                  fontSize:18,fontWeight: FontWeight.bold
-                              ),
+                              labelStyle: const TextStyle(color: Colors.lightBlueAccent, fontSize: 18, fontWeight: FontWeight.bold),
                               prefixIcon: const Icon(
                                 Icons.email,
                                 color: Colors.lightBlueAccent,
@@ -70,45 +67,48 @@ class Login extends StatelessWidget {
                           keyboardType: TextInputType.text,
                           obscureText: cubit.obscure,
                           decoration: InputDecoration(
-                              border: OutlineInputBorder(
-                                borderRadius: BorderRadius.circular(50),
-                              ),
-                              hintText: 'Enter your Password',
-                              labelText: 'Password',
-                              labelStyle: const TextStyle(color: Colors.lightBlueAccent,fontSize:18,fontWeight: FontWeight.bold ),
-                              prefixIcon: const Icon(Icons.lock, color: Colors.lightBlueAccent),
-                              suffixIcon:  IconButton(
-                                onPressed: () {
-                                  cubit.changeObscure();
-                                },
-                                icon: cubit.obscure
-                                    ? Icon(
-                                  Icons.remove_red_eye,
-                                  color: Colors.lightBlueAccent,
-                                )
-                                    : Icon(
-                                  Icons.visibility_off_sharp,
-                                  color: Colors.lightBlueAccent,
-                                ),
-                              ),
-                        ),),
-                            const SizedBox(
-                              height: 20,
+                            border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(50),
                             ),
-                        cubit.isloading==false?ElevatedButton(
-                          onPressed: () {
-                            cubit.login(
-                              email: email.text,
-                              password: password.text,
-                              context: context,
-                            );
-                          },
-                          style: ElevatedButton.styleFrom(
-                              backgroundColor: Colors.lightBlueAccent,
-                              elevation: 10.0,
-                              textStyle: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold)),
-                          child: const Text('LOGIN'),
-                        ):CircularProgressIndicator(),
+                            hintText: 'Enter your Password',
+                            labelText: 'Password',
+                            labelStyle: const TextStyle(color: Colors.lightBlueAccent, fontSize: 18, fontWeight: FontWeight.bold),
+                            prefixIcon: const Icon(Icons.lock, color: Colors.lightBlueAccent),
+                            suffixIcon: IconButton(
+                              onPressed: () {
+                                cubit.changeObscure();
+                              },
+                              icon: cubit.obscure
+                                  ? Icon(
+                                      Icons.remove_red_eye,
+                                      color: Colors.lightBlueAccent,
+                                    )
+                                  : Icon(
+                                      Icons.visibility_off_sharp,
+                                      color: Colors.lightBlueAccent,
+                                    ),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
+                        cubit.isloading == false
+                            ? ElevatedButton(
+                                onPressed: () {
+                                  cubit.login(
+                                    email: email.text,
+                                    password: password.text,
+                                    context: context,
+                                  );
+                                },
+                                style: ElevatedButton.styleFrom(
+                                    backgroundColor: Colors.lightBlueAccent,
+                                    elevation: 10.0,
+                                    textStyle: const TextStyle(color: Colors.white, fontSize: 20, fontWeight: FontWeight.bold)),
+                                child: const Text('LOGIN'),
+                              )
+                            : CircularProgressIndicator(),
                         const SizedBox(
                           height: 10,
                         ),
@@ -131,7 +131,7 @@ class Login extends StatelessWidget {
                                 ))
                           ],
                         )
-                        ],
+                      ],
                     ),
                   ),
                 ),

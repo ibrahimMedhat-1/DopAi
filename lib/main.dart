@@ -1,4 +1,4 @@
-import 'package:dopproject/home_page/home_page.dart';
+import 'package:dopproject/layout/layout.dart';
 import 'package:dopproject/shared/cacheHelper.dart';
 import 'package:dopproject/shared/constants.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -21,6 +21,6 @@ void main() async {
       canvasColor: Colors.white,
     ),
     debugShowCheckedModeBanner: false,
-    home: isUser == 'user' ? HomePage() : Login(),
+    home: isUser == 'user' ? HomeLayout() : Login(),
   ));
 }

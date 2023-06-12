@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:conditional_builder_null_safety/conditional_builder_null_safety.dart';
 import 'package:dopproject/doctor_screen/doctor_screen.dart';
-import 'package:dopproject/home_page/home_page.dart';
 import 'package:dopproject/pharmacy_screen/pharmacy_screen.dart';
 import 'package:dopproject/shared/constants.dart';
 import 'package:firebase_storage/firebase_storage.dart';
@@ -172,7 +171,7 @@ class _DetectState extends State<Detect> {
                                             'note': cubit.notes.text.toString(),
                                           }).then((value) {
                                             id = value.id;
-                                            Navigator.pushReplacement(context, MaterialPageRoute(builder: (builder) => HomePage()));
+                                            Navigator.pop(context);
                                           }).then((value) {
                                             FirebaseFirestore.instance.collection('user').doc(uId).collection('history').doc(id).update({
                                               'id': id,

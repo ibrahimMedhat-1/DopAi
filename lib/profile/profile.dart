@@ -64,8 +64,8 @@ class Profile extends StatelessWidget {
                                 decoration: BoxDecoration(borderRadius: BorderRadius.circular(80)),
                                 clipBehavior: Clip.antiAlias,
                                 child: CachedNetworkImage(
-                                    imageUrl: cubit.image.toString() != 'null'
-                                        ? cubit.image.toString()
+                                    imageUrl: image.toString() != 'null'
+                                        ? image.toString()
                                         : 'https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png',
                                     placeholder: (context, url) => Image.asset('assets/2815428.png')),
                               ),

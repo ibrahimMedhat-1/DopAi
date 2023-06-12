@@ -14,7 +14,6 @@ class ProfileCubit extends Cubit<ProfileState> {
   var age;
   var height;
   var weight;
-  var image = null;
 
   void Profile() {
     FirebaseFirestore.instance.collection('user').doc(uId).get().then((value) {
@@ -24,7 +23,6 @@ class ProfileCubit extends Cubit<ProfileState> {
       height = value.data()!['height'];
       weight = value.data()!['weight'];
       image = value.data()!['image'];
-      image = this.image;
       emit(Users());
     }).then((value) {
       print(image);

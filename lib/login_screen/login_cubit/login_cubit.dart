@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dopproject/layout/layout.dart';
 import 'package:dopproject/shared/cacheHelper.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -27,6 +28,10 @@ class LoginCubit extends Cubit<LoginState> {
       uId = value.user!.uid;
       await CacheHelper.setData(key: 'login', value: 'user');
       await CacheHelper.setData(key: 'uId', value: uId);
+      FirebaseFirestore.instance.collection('user').doc(uId).get().then((value) {
+        image = value.data()!['image'];
+        emit(Users());
+      });
       Navigator.pushReplacement(context, MaterialPageRoute(builder: (builder) => const HomeLayout()));
     }).catchError((onError) {
       Fluttertoast.showToast(

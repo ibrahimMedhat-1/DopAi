@@ -51,7 +51,7 @@ class Login extends StatelessWidget {
                               border: OutlineInputBorder(
                                 borderRadius: BorderRadius.circular(50),
                               ),
-                              hintText: 'Enter your E-Mail',
+                              hintText: 'Enter  your E-Mail',
                               labelText: 'E-Mail',
                               labelStyle: const TextStyle(color: Colors.lightBlueAccent, fontSize: 18, fontWeight: FontWeight.bold),
                               prefixIcon: const Icon(

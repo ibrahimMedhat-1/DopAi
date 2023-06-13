@@ -1,10 +1,13 @@
 import 'dart:io';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dopproject/detect_screen/detect_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:tflite/tflite.dart';
+
+import '../../shared/constants.dart';
 
 part 'home_page_state.dart';
 
@@ -89,5 +92,15 @@ class HomePageCubit extends Cubit<HomePageState> {
       emit(ClassifyIfXrayError());
     });
     // Tflite.close();
+  }
+
+  void Profile() {
+    FirebaseFirestore.instance.collection('user').doc(uId).get().then((value) {
+      image = value.data()!['image'];
+    }).then((value) {
+      emit(Users());
+
+      print('image');
+    });
   }
 }

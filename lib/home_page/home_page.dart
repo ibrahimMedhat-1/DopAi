@@ -46,7 +46,8 @@ class _HomePageState extends State<HomePage> {
                       margin: EdgeInsets.only(right: 10),
                       decoration: BoxDecoration(borderRadius: BorderRadius.circular(80)),
                       clipBehavior: Clip.antiAlias,
-                      child: CachedNetworkImage(imageUrl: image.toString(), placeholder: (context, url) => Image.asset('assets/2815428.png')),
+                      child:
+                          CachedNetworkImage(width: 50, imageUrl: image.toString(), placeholder: (context, url) => Image.asset('assets/2815428.png')),
                     ),
                   )
                 ],

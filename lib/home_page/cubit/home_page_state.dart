@@ -13,4 +13,6 @@ class ImageIsNotXray extends HomePageState {}
 
 class ClassifyIfXrayError extends HomePageState {}
 
+class Users extends HomePageState {}
+
 class LoadModelSuccess extends HomePageState {}

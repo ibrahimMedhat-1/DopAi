@@ -14,7 +14,37 @@ class RegisterCubit extends Cubit<RegisterState> {
 
   bool isloading = false;
   bool obscure = true;
-
+  Widget? value;
+  final List<DropdownMenuItem<Widget>>? specialties = [
+    const DropdownMenuItem(
+      value: Text(
+        'Male',
+        style: TextStyle(fontSize: 20.0, color: Colors.black54),
+      ),
+      child: Center(
+        child: Text(
+          'Male',
+          style: TextStyle(fontSize: 20.0, color: Colors.white, fontWeight: FontWeight.bold),
+        ),
+      ),
+    ),
+    const DropdownMenuItem(
+      value: Text(
+        'Female',
+        style: TextStyle(fontSize: 20.0, color: Colors.black54),
+      ),
+      child: Center(
+        child: Text(
+          'Female',
+          style: TextStyle(fontSize: 20.0, color: Colors.white, fontWeight: FontWeight.bold),
+        ),
+      ),
+    ),
+  ];
+  void changeValue(Widget? value) {
+    this.value = value;
+    emit(SpecialtiesChangeValue());
+  }
 
   void signUp({
     required String email,
@@ -40,16 +70,14 @@ class RegisterCubit extends Cubit<RegisterState> {
       }).then((value) {
         Navigator.push(context, MaterialPageRoute(builder: (builder) => Login()));
       });
-    }).catchError((onError)
-    {
+    }).catchError((onError) {
       Fluttertoast.showToast(
           msg: onError.message.toString(),
           toastLength: Toast.LENGTH_SHORT,
           gravity: ToastGravity.BOTTOM,
           backgroundColor: Colors.lightBlueAccent,
           textColor: Colors.white,
-          fontSize: 18.0
-      );
+          fontSize: 18.0);
       isloading = false;
       emit(Isloading());
     });

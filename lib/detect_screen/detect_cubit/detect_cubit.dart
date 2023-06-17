@@ -39,14 +39,14 @@ class DetectCubit extends Cubit<DetectState> {
       debugPrint(value.toString());
       loading = false;
       outputs = value;
-      Tflite.close();
+      // Tflite.close();
       emit(ClassifyLungSuccess());
     }).catchError((onError) {
       debugPrint('error classify');
       debugPrint(onError.toString());
-      Tflite.close();
+      // Tflite.close();
       emit(ClassifyLungError());
     });
-    Tflite.close();
+    // Tflite.close();
   }
 }

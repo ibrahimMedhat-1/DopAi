@@ -91,12 +91,13 @@ class HomePageCubit extends Cubit<HomePageState> {
             backgroundColor: Colors.red,
             textColor: Colors.black,
             fontSize: 16.0);
+        loadModel();
         emit(ImageIsNotXray());
       }
     }).catchError((onError) {
       debugPrint('error classify');
       debugPrint(onError.toString());
-      // Tflite.close();
+      Tflite.close();
       emit(ClassifyIfXrayError());
     });
     // Tflite.close();

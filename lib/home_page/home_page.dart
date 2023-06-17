@@ -90,6 +90,111 @@ class _HomePageState extends State<HomePage> {
                                 ),
                               ),
                               const SizedBox(height: 60),
+                              Container(
+                                padding: EdgeInsets.fromLTRB(10, 10, 10, 15),
+                                clipBehavior: Clip.antiAlias,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.grey,
+                                      blurRadius: 10,
+                                      offset: Offset(5, 5), // Shadow position
+                                    ),
+                                  ],
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(20),
+                                    topRight: Radius.circular(20),
+                                    bottomLeft: Radius.circular(20),
+                                    bottomRight: Radius.circular(20),
+                                  ),
+                                ),
+                                margin: EdgeInsets.fromLTRB(10, 10, 10, 0),
+                                width: double.infinity,
+                                child: Column(
+                                  children: [
+                                    Image.asset('assets/b8a1309a-ba53-48c7-bca3-9c36aab2338a-thumb.jpg'),
+                                    SizedBox(
+                                      height: 15,
+                                    ),
+                                    Row(
+                                      children: [
+                                        Text(
+                                          style: TextStyle(
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.lightBlueAccent,
+                                          ),
+                                          'Tip : ',
+                                        ),
+                                        Expanded(
+                                          child: Text(
+                                            style: TextStyle(
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                            'Drink 3 Liters per day',
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Container(
+                                padding: EdgeInsets.fromLTRB(10, 10, 10, 15),
+                                clipBehavior: Clip.antiAlias,
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  boxShadow: [
+                                    BoxShadow(
+                                      color: Colors.grey,
+                                      blurRadius: 10,
+                                      offset: Offset(5, 5), // Shadow position
+                                    ),
+                                  ],
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(20),
+                                    topRight: Radius.circular(20),
+                                    bottomLeft: Radius.circular(20),
+                                    bottomRight: Radius.circular(20),
+                                  ),
+                                ),
+                                margin: EdgeInsets.fromLTRB(10, 10, 10, 0),
+                                width: double.infinity,
+                                child: Column(
+                                  children: [
+                                    Image.asset('assets/Sun.png'),
+                                    SizedBox(
+                                      height: 15,
+                                    ),
+                                    Row(
+                                      children: [
+                                        Text(
+                                          style: TextStyle(
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold,
+                                            color: Colors.lightBlueAccent,
+                                          ),
+                                          'Tip : ',
+                                        ),
+                                        Expanded(
+                                          child: Text(
+                                            style: TextStyle(
+                                              fontSize: 20,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                            'Stay at sun for at least 10 minutes',
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
                             ],
                           ),
                         ),

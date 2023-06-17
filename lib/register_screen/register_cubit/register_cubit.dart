@@ -67,8 +67,9 @@ class RegisterCubit extends Cubit<RegisterState> {
         'gender': gender,
         'weight': weight,
         'height': height,
+        'image': 'https://cdn-icons-png.flaticon.com/512/2815/2815428.png'
       }).then((value) {
-        Navigator.push(context, MaterialPageRoute(builder: (builder) => Login()));
+        Navigator.pushReplacement(context, MaterialPageRoute(builder: (builder) => Login()));
       });
     }).catchError((onError) {
       Fluttertoast.showToast(

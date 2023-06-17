@@ -16,6 +16,14 @@ class HomePageCubit extends Cubit<HomePageState> {
   static HomePageCubit get(context) => BlocProvider.of(context);
   List? outputs;
   String? imageIs;
+  String? imageProfile;
+  void getImage() {
+    FirebaseFirestore.instance.collection('user').doc(uId).get().then((value) {
+      imageProfile = value.data()!['image'];
+      emit(LoadModelError());
+    });
+  }
+
   loadModel() async {
     await Tflite.loadModel(
       model: 'assets/xray_assuring_model/model_unquant.tflite',

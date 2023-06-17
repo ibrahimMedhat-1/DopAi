@@ -20,7 +20,7 @@ class ProfileCubit extends Cubit<ProfileState> {
   var weight;
   File? imageProfilee;
   String? img;
-  void imageProfile() {
+  void imageProfile(context) {
     ImagePicker().pickImage(source: ImageSource.gallery).then((value) {
       imageProfilee = File(value!.path);
       FirebaseStorage.instance.ref().child('user/profile/$uId}').putFile(imageProfilee!).then((p0) {
@@ -28,9 +28,7 @@ class ProfileCubit extends Cubit<ProfileState> {
           img = value.toString();
           image = img.toString();
           emit(Users());
-          FirebaseFirestore.instance.collection('user').doc(uId).update({'image': value.toString()}).then((value) {
-            Profile();
-          });
+          FirebaseFirestore.instance.collection('user').doc(uId).update({'image': value.toString()}).then((value) {});
         });
       });
     });

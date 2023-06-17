@@ -7,8 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:image_picker/image_picker.dart';
 
-import '../shared/constants.dart';
-
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -21,12 +19,15 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => HomePageCubit()..loadModel(),
+      create: (context) => HomePageCubit()
+        ..loadModel()
+        ..getImage(),
       child: BlocConsumer<HomePageCubit, HomePageState>(
         listener: (context, state) {
           // TODO: implement listener
         },
         builder: (context, state) {
+          HomePageCubit.get(context).getImage();
           var cubit = HomePageCubit.get(context);
           return Scaffold(
               backgroundColor: Colors.white,
@@ -46,8 +47,8 @@ class _HomePageState extends State<HomePage> {
                       margin: EdgeInsets.only(right: 10),
                       decoration: BoxDecoration(borderRadius: BorderRadius.circular(80)),
                       clipBehavior: Clip.antiAlias,
-                      child:
-                          CachedNetworkImage(width: 50, imageUrl: image.toString(), placeholder: (context, url) => Image.asset('assets/2815428.png')),
+                      child: CachedNetworkImage(
+                          width: 50, imageUrl: cubit.imageProfile.toString(), placeholder: (context, url) => Image.asset('assets/2815428.png')),
                     ),
                   )
                 ],

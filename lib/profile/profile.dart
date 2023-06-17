@@ -40,7 +40,7 @@ class Profile extends StatelessWidget {
                           Center(
                             child: InkWell(
                               onTap: () {
-                                cubit.imageProfile();
+                                cubit.imageProfile(context);
                               },
                               child: Container(
                                 height: 200,
@@ -81,9 +81,11 @@ class Profile extends StatelessWidget {
                           SizedBox(
                             width: 20,
                           ),
-                          Text(
-                            '${cubit.email}',
-                            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                          Expanded(
+                            child: Text(
+                              '${cubit.email}',
+                              style: TextStyle(fontWeight: FontWeight.bold, fontSize: 20),
+                            ),
                           ),
                         ],
                       ),
